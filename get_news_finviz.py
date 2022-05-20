@@ -21,7 +21,7 @@ from airflow.utils.dates import days_ago
 default_args = {
     'owner': 'Diego T',
     'depends_on_past': False,
-    'start_date': days_ago(2),
+    'start_date': days_ago(1),
     'email': ['airflow@example.com'],
     'email_on_failure': False,
     'email_on_retry': False,
@@ -47,7 +47,7 @@ dag = DAG(
     'get_finviz_news',
     default_args=default_args,
     description='Retrieve news from finviz_url on ticker list and store them in postgree',
-    schedule_interval='@once',
+    schedule_interval='@hourly',
 )
 
 def _get_news(**kwargs):
