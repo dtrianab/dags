@@ -1,5 +1,7 @@
--- create pet table
-CREATE TABLE IF NOT EXISTS newsapi (
+CREATE SCHEMA raw_news
+
+-- create news api table 
+CREATE TABLE IF NOT EXISTS raw_news.newsapi (
     title VARCHAR,
     author VARCHAR,
     source_id VARCHAR,
@@ -10,29 +12,21 @@ CREATE TABLE IF NOT EXISTS newsapi (
     url_news VARCHAR,
     photo_url VARCHAR);
 
-
-CREATE TABLE IF NOT EXISTS FinViz (
+-- Fin Viz Tables
+CREATE TABLE IF NOT EXISTS raw_news.FinViz (
     news_id  SERIAL PRIMARY KEY,
     ticker VARCHAR,
     date_news date,
     time_news time,
     headline VARCHAR,
-    url_news VARCHAR,
-    neg VARCHAR,
-    neu VARCHAR,
-    pos VARCHAR,
-    compound VARCHAR 
+    url_news VARCHAR
     );    
 
-CREATE TABLE IF NOT EXISTS tmp_FinViz (
+CREATE TABLE IF NOT EXISTS raw_news.tmp_FinViz (
     news_id  SERIAL PRIMARY KEY,
     ticker VARCHAR,
     date_news date,
     time_news time,
     headline VARCHAR,
-    url_news VARCHAR,
-    neg VARCHAR,
-    neu VARCHAR,
-    pos VARCHAR,
-    compound VARCHAR 
+    url_news VARCHAR
     );      
