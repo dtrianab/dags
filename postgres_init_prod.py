@@ -5,16 +5,23 @@ from airflow import settings
 from airflow.models.connection import Connection
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 
+
+
+
+
 with DAG(
     # instantiating the Postgres Operator
-    dag_id="postgres_init_local_dev",
+    dag_id="postgres_init_local_prod",
     start_date=datetime.datetime(2020, 2, 2),
     schedule_interval="@once",
     catchup=False,
 ) as dag:
     # create_newsapi_table in pg DB
     create_newsapi_table = PostgresOperator(
-        task_id="create_news_tables",
+        task_id="create_news_tables_prod",
         postgres_conn_id="airflow_db",
         sql="news_tables.sql",
     )
+
+
+    

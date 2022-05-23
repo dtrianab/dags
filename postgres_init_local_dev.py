@@ -34,7 +34,7 @@ with DAG(
 ) as dag:
     # create_newsapi_table in pg DB
     create_newsapi_table = PostgresOperator(
-        task_id="create_news_tables",
+        task_id="create_news_tables_dev",
         postgres_conn_id="airflow_db",
         sql="news_tables.sql",
     )

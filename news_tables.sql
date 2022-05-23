@@ -1,4 +1,4 @@
-CREATE SCHEMA raw_news
+CREATE SCHEMA IF NOT EXISTS raw_news;
 
 -- create news api table 
 CREATE TABLE IF NOT EXISTS raw_news.newsapi (
